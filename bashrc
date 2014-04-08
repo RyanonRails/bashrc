@@ -1183,25 +1183,6 @@ if command -v src-hilite-lesspipe.sh >/dev/null ; then
   export LESS=' -R '
 fi
 
-# Conditional support for Ruby Version Manager (RVM)
-case "$RUBY_MANAGER" in
-  chruby)
-    safe_source \
-      /usr/local/share/chruby/chruby.sh /usr/local/share/chruby/auto.sh
-  ;;
-  rbenv)
-    for d in "${HOME}/.rbenv/bin" "/usr/local/rvm/bin" ; do
-      if [ -d "$d" ] ; then
-        export PATH="$d:$PATH" ; break
-      fi
-    done ; unset d
-    eval "$(rbenv init -)"
-  ;;
-  rvm|*)
-    safe_source_first "${HOME}/.rvm/scripts/rvm" "/usr/local/lib/rvm"
-  ;;
-esac
-
 # Number of commands to remember in the command history
 export HISTSIZE=10000
 
@@ -1249,13 +1230,12 @@ complete -W "check update reload version" bashrc
 # load in rvm completions, if rvm is loaded
 safe_source "${rvm_path}/scripts/completion"
 
+safe_source /usr/local/git/contrib/completion/git-completion.bash
+
 # load in some choice completions from homebrew if installed
 if command -v brew >/dev/null ; then
   safe_source "$(brew --prefix)/Library/Contributions/brew_bash_completion.sh"
-
-  for c in git-completion.bash git-flow-completion.bash ; do
-    safe_source "$(brew --prefix)/etc/bash_completion.d/$c"
-  done ; unset c
+  safe_source $(brew --prefix)/etc/bash_completion.d/*
 fi
 
 case "$_os" in
