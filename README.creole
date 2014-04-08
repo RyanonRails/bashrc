@@ -2,12 +2,12 @@
 
 == System-Wide Deployment ==
 {{{
-sudo bash < <( curl -L http://bit.ly/bashrc-install-system-wide )
+sudo bash < <( curl -L https://raw.githubusercontent.com/ryanonrails/bashrc/master/contrib/install-system-wide )
 }}}
 
 == Local (User) Deployment ==
 {{{
-bash < <( curl -L http://bit.ly/bashrc-install-local-user )
+bash < <( curl -L https://raw.githubusercontent.com/ryanonrails/bashrc/master/contrib/install-local )
 }}}
 
 == Delay Loading Your Local Deployment ==
