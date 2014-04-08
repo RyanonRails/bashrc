@@ -1223,7 +1223,7 @@ shopt -s checkwinsize
 shopt -s histappend
 
 # Echo the version and date of the profile
-__bashrc_version
+#__bashrc_version
 
 
 #---------------------------------------------------------------
