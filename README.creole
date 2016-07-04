@@ -1,10 +1,5 @@
 = Installation =
 
-== System-Wide Deployment ==
-{{{
-sudo bash < <( curl -L https://raw.githubusercontent.com/ryanonrails/bashrc/master/contrib/install-system-wide )
-}}}
-
 == Local (User) Deployment ==
 {{{
 bash < <( curl -L https://raw.githubusercontent.com/ryanonrails/bashrc/master/contrib/install-local )
