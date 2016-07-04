@@ -748,7 +748,7 @@ bash_prompt() {
       fi
       local nocolor="\[$(bput rst)\]"
       local custom="\[$(bput $color)\]"
-      local titlebar="\[\033]0;${tb}\u@\h:\w${tb}\007\]"
+      local titlebar="\[\033]0;${tb}\w${tb}\007\]"
     ;;
     *)
       local cyan=""
